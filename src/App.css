@@ -1,0 +1,42 @@
+html, body,#root {
+  height: 100%;
+  background:#fafafa;
+}
+#root {
+  font-size: 15px;
+  display: grid;
+  /* grid-template-areas:
+  "header"
+  "main"
+  "footer";*/
+  
+  grid-template-areas:
+  "header"
+  "main" 
+  "footer";
+  grid-template-columns: auto;
+  grid-template-rows: 70px 1fr 100px; 
+  gap: 1em;
+}
+header{
+  grid-area: header;
+}
+.main{
+grid-area: main;
+}
+footer{
+  border-top: #ccc 1px solid;
+  padding-top: 1em;
+  grid-area: footer;
+
+}
+.img-hero {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container-width{
+  width: 93%;
+  margin: 0 auto;
+}
