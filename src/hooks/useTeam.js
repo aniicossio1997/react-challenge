@@ -27,10 +27,8 @@ const useTeam = (props) => {
       const arrayFiltrado2 = teamAux.filter((item) => item.id !== id);
 
       setTeamAux(arrayFiltrado2);
-      console.log(newArrayId)
       window.localStorage.setItem('teamId', JSON.stringify(newArrayId))
       setTeamId(newArrayId)
-      console.log(`mis ids: ${newArrayId}`)
       window.localStorage.setItem('teamData', JSON.stringify(arrayFiltrado2))
       setTeam(getData)
       setIsLoading(false)

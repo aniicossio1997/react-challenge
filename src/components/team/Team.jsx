@@ -27,7 +27,6 @@ const Team = () => {
   }
   return (
     <> 
-    <h1>estoy en components</h1>
     {
       (isLoading) ? (
         <Loading/>
