@@ -2,19 +2,17 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios'
 import { useCallback, useState } from 'react';
 import Alert from '../../../components/mensajes/Alert';
-import ListHero from '../ListHero';
-
+function buttonOptions(hero, options){
+  return (
+      <>
+        <button className="btn btn-sm btn-outline-primary" onClick={() => options(hero.id)} >Delete</button>
+      </>
+  );
+}
 const ENDPOINT='https://www.superheroapi.com/api.php/3156431871251248/search'
 const FormHero = () => {
 	const [team, setTeam] =useState([])
 	const [msj, setMsj]=useState(null)
-	function buttonOptions(hero){
-  return (
-      <>
-        <button className="btn btn-block btn-outline-primary" onClick={() => handleAdd(hero)} >Recruit</button>
-      </>
-  );
-}
 	const handleSubmit = useCallback(async (name) => {
 		setMsj(null)
 		setTeam([])
@@ -107,10 +105,34 @@ const FormHero = () => {
 			{
 				msj && (<Alert typeClass={msj.typeClass} title={msj.title} body={msj.body}/>)
 			}
-            <ListHero teamAux={team}
-              buttonOptions={buttonOptions}
-             />		 
-		  </div>
+        <div className="row">
+          {
+          team.map((hero) => (
+            <div key={hero.id} className="col-lg-4 col-md-6 col-12 mb-3 " style={{maxWidth:"100%"}}>
+
+            <div className="card mb-2" style={{maxWidth:"100%"}}>
+              <div className="row no-gutters">
+                <div className="col-6">
+                  <img src={hero.image.url} className="img-hero  mr-5" alt="..."/>
+                </div>
+                <div className="col-6">
+                  <div className="card-body">
+                    <h1>{hero.id}</h1>
+                    <h5 className="card-title badge badge-secondary ">{hero.name}</h5>
+                    <strong className="d-block">Alignment: {hero.biography.alignment}</strong>
+                  </div>
+                </div>
+              </div>
+              <div className="card-footer text-muted">
+								<button className="btn btn-info btn-block" onClick={() => handleAdd(hero) }>Add</button>
+              </div>
+            </div>
+
+
+            </div>
+          ))
+        } </div>
+      </div>
     </>
   )
 }

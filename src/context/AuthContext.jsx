@@ -11,7 +11,6 @@ const AuthProvider = ({children}) => {
     if(existJWT===null){
       window.localStorage.removeItem('teamId')
       window.localStorage.removeItem('teamData')
-      alert("error")
     }
 
   }, [])

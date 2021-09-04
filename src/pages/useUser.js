@@ -1,7 +1,6 @@
 import { useCallback, useContext, useState } from 'react'
 import  AuthContext from '../context/AuthContext'
 import axios from "axios"
-import { Redirect } from 'react-router'
 const ENDPOINT = 'http://challenge-react.alkemy.org/'
 
 const useUser = () => {

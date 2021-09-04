@@ -13,10 +13,11 @@ const Login = (props) => {
 	}, [isLogged,props.history])
 	return (
 		<>
-		{ error.type && ( <Alert typeClass={error.type} title="upss" body={error.message}/>)}
 		<div className="row justify-content-center p-3">
       <div className="m-auto col-12 col-sm-8 col-md-6 col-xl-6">
         <h3 className="mt-3 text-center">LOGIN</h3>
+				{ error.type && ( <Alert typeClass={error.type} title="upss" body={error.message}/>)}
+
 				<Formik
 				initialValues={{
 					email: '',
@@ -26,12 +27,12 @@ const Login = (props) => {
 					const errors = {};
 					// Validacion correo
           if (!values.email) {
-            errors.email = 'Ingrese un email valido';
+            errors.email = 'Please, enter your email address';
           } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
             errors.email = 'Invalid email address';
           }
           if (!values.password) {
-            errors.password ="Ingresar un password"
+            errors.password ="Please, enter your password"
           }
 
 					return errors;
@@ -41,15 +42,18 @@ const Login = (props) => {
 
 				}}
 			>
+
 				{( {errors, touched} ) => (
+					
 					<Form className="formulario">
 						<div className="mt-3 mb-3">
+							
 							<label htmlFor="email" className="text-capitalize">email</label>
 							<Field
 								type="text" 
 								id="email" 
 								name="email" 
-								placeholder="Ingrese un email" 
+								placeholder="Enter your email address..." 
 								className={`${errors.email && touched.email && "is-invalid "} form-control`}
 							/>
 							<ErrorMessage name="email" component={() => (<div className="invalid-feedback">{errors.email}</div>)} />
@@ -60,7 +64,7 @@ const Login = (props) => {
 								type="password" 
 								id="password" 
 								name="password" 
-								placeholder="Ingrese una contraseña"
+								placeholder="Enter your password..."
 								className={`${errors.password && touched.password && "is-invalid "} form-control`}
 								
 							/>

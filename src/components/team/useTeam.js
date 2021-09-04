@@ -20,7 +20,7 @@ const useTeam = (props) => {
 
     if(getTeamId === null){
       console.log(getTeamId)
-      alert('Error:  Hero not present in the team ')
+      alert('no datos en el localstore')
     }else {
 
     const newArrayId= teamId.filter((item) => parseInt(item) !== parseInt(id));
@@ -63,12 +63,12 @@ const useTeam = (props) => {
 
     
   }, [])
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     console.log('This will run after 1 second!')
-  //   }, 1050);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log('This will run after 1 second!')
+    }, 1050);
+    return () => clearTimeout(timer);
+  }, []);
   return({team, isLoading,deleteHero,teamAux})
 }
 
