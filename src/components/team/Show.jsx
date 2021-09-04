@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import useTeam from "./useTeam";
+import useTeam from "../../hooks/useTeam";
 import {ListPowerstats} from "./ListPowerstats";
 
 const Show = () => {

@@ -3,7 +3,7 @@ import Loading from '../common/Loading';
 import Aside from './Aside';
 import Hero from './Hero';
 import ListHero from './ListHero';
-import useTeam from './useTeam';
+import useTeam from '../../hooks/useTeam';
 
 
 const Team = () => {

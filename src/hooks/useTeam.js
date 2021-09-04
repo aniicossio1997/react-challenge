@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {useCallback, useContext, useEffect, useState} from 'react'
-import AuthContext from '../../context/AuthContext'
-import SuperHeroApi from './SuperHeroApi'
+import AuthContext from '../context/AuthContext'
+import SuperHeroApi from '../components/team/SuperHeroApi'
 
 const useTeam = (props) => {
   const getData = JSON.parse(localStorage.getItem("teamData"));
