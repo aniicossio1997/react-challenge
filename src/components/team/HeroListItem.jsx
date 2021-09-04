@@ -1,3 +1,7 @@
+import React from 'react'
+
+import {ListPowerstats} from "./ListPowerstats";
+
 function listPowerstats(powerstats) {
   const itemRows = [];
   for (const property in powerstats) {
@@ -17,7 +21,7 @@ const HeroListItem = ({hero, buttonOptions}) => {
             <div className="card-body">
               <h1>{hero.id}</h1>
               <h5 className="card-title badge badge-secondary ">{hero.name}</h5>
-              {listPowerstats(hero.powerstats)}
+              {ListPowerstats(hero.powerstats)}
               <strong>Alignment: {hero.biography.alignment}</strong>
             </div>
           </div>

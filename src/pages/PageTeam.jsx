@@ -1,4 +1,4 @@
-import Team from "../modules/team/Team"
+import Team from "../components/team/Team"
 
 const PageTeam = () => {
   return (

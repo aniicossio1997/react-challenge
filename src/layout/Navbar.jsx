@@ -1,6 +1,6 @@
 import {Link, NavLink} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
-import useUser from '../pages/useUser';
+import useUser from '../hooks/useUser';
 
 
 const Navbar = (props) => {
@@ -14,7 +14,7 @@ const Navbar = (props) => {
   return (
     <>
       <header>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark pb-2  " style={{zIndex: "2"}}>
           <Link to="/" className="navbar-brand">
             <strong>
               <i>{`<<SuperHero>>`}</i>
@@ -33,9 +33,11 @@ const Navbar = (props) => {
                 team
               </NavLink>
             </li>
+            <li className="nav-item">
             <button className="btn btn-danger"onClick={handleLogout} >
               Logout  
               </button>
+              </li>
             </>
             )
             }           
@@ -63,6 +65,9 @@ const Navbar = (props) => {
           </div>
         </nav>
       </header>
+
+
+
     </>
   );
 };

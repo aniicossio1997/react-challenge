@@ -6,15 +6,15 @@ import {
   Switch
 } from "react-router-dom";
 import NotFound from "./pages/NotFound";
-import Team from "./modules/team/Team";
 import Navbar from "./layout/Navbar"
 import Footer from "./layout/Footer"
 import Home from "./pages/Home";
-import Show from "./modules/team/Show";
+import Show from "./components/team/Show";
 import ProtectedRoute from "./ProtectedRoute";
 import WithoutProted from "./WithoutProted";
-import FormHero from "./modules/team/addHero/FormHero";
-import Login from "./pages/Login";
+import FormHero from "./components/team/addHero/FormHero";
+import PageLogin from "./pages/PageLogin";
+import PageTeam from "./pages/PageTeam";
 function App(): JSX.Element {
   return (
     <>
@@ -24,10 +24,10 @@ function App(): JSX.Element {
 
             <div className="main container-width mt-2">
               <Switch>
-              <WithoutProted path="/login" component={Login} />
+              <WithoutProted path="/login" component={PageLogin} />
               <ProtectedRoute path="/team/add" component={FormHero} />
               <ProtectedRoute path="/team/:id" component={Show}  exact />
-              <ProtectedRoute path="/team" component={Team} />
+              <ProtectedRoute path="/team" component={PageTeam} />
               <WithoutProted path="/" component={Home}  exact/>
               <Route path="/:rest*"><NotFound/></Route>
               </Switch>
