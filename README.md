@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * npm start 
 **Estructura:**
 ![enter image description here](https://drive.google.com/file/d/1ThqHmcXPaNN8KoOj32WNXF_2aSJnswfT/view?usp=sharing)
-![alt text](https://drive.google.com/file/d/1ThqHmcXPaNN8KoOj32WNXF_2aSJnswfT/view?usp=sharing)
+![alt text](https://github.com/aniicossio1997/react-challenge/blob/main/challenge.png)
 
 La carpeta **SRC** cuenta cinco carpetas:
 * Pages:  En esta directorio se encuentran las paginas principales de la aplicación 
