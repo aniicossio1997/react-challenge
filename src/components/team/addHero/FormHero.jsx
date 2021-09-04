@@ -1,20 +1,24 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios'
-import { useCallback, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import Alert from '../../common/Alert';
 import ListHero from '../ListHero';
+import AuthContext from '../../../context/AuthContext';
+import useAddHero from './useAddHero';
 const maxHero=6;
 const ENDPOINT='https://www.superheroapi.com/api.php/3156431871251248/search'
 const FormHero = () => {
+	const { teamId, teamData} =useContext(AuthContext)
 	const [team, setTeam] =useState([])
 	const [msj, setMsj]=useState(null)
+	const {handleAdd}=useAddHero()
 	function buttonOptions(hero){
   return (
       <>
-        <button className="btn btn-block btn-outline-primary" onClick={() => handleAdd(hero)} >Recruit</button>
+        <button className="btn btn-block btn-outline-primary" onClick={() => handleAdd(hero,setMsj)} >Recruit</button>
       </>
   );
-}
+	}
 	const handleSubmit = useCallback(async (name) => {
 		setMsj(null)
 		setTeam([])
@@ -38,40 +42,7 @@ const FormHero = () => {
 				console.log(error);
 			})
 	}, []);
-	const handleAdd = useCallback(async (hero) => {
-		const arrayHero = JSON.parse(window.localStorage.getItem('teamId'))
-		setMsj(null)
-		if (!!arrayHero) {
-			if(arrayHero.length >= maxHero){
-				setMsj({
-					typeClass: 'danger',
-					title:'Error add hero',
-					body: `Remember that the team can only have six heroes, to continue you can remove a hero`
-				})
-				return false;
-			}
-			if (arrayHero.includes(hero.id)) {
-				setMsj({
-					typeClass: 'danger',
-					title:'Error team is complete',
-					body: `heroes cannot be repeated`
-				})
-				return false;
-			}
-				arrayHero.push(hero.id)
-				window.localStorage.setItem('teamId',JSON.stringify(arrayHero))
-				const listHero= JSON.parse(window.localStorage.getItem('teamData'))
-				listHero.push(hero)
-				window.localStorage.setItem('teamData',JSON.stringify(listHero))
-				setMsj({
-					typeClass: 'success',
-					title:'Exito',
-					body: `Se ha agreado el Heroe al equipo ${hero.name}`
-				})
-			
 
-		}
-	},[])
   return (
     <>
       <div className="container-fluid ">

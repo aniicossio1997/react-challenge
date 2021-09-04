@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import useTeam from "../../hooks/useTeam";
+import AuthContext from "../../context/AuthContext";
 import {ListPowerstats} from "./ListPowerstats";
 
 const Show = () => {
   const { id } = useParams();
-  const { team } = useTeam();
+  const { teamData } =useContext(AuthContext)
   const [hero, setHero] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const getHero = team.find(
+    const getHero = teamData.find(
       (element) => parseInt(element.id) === parseInt(id)
     );
     setHero(getHero);
     setIsLoading(false);
 
     console.log(`dato: ${hero}`);
-  }, [hero]);
+  }, []);
   return (
     <>
       {isLoading ? (

@@ -7,7 +7,8 @@ const Alert = ({ typeClass, title, body }) => {
       role="alert"
     >
       <div className="container">
-        <strong className=" d-block text-center text-uppercase">{title}</strong>
+        <h6 className=" d-block text-center text-capitalize">{title}</h6>
+        <hr/>
         <p className="text-center"> {body}</p>
       </div>
       {/* <button

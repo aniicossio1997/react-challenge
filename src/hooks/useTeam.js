@@ -1,18 +1,16 @@
-import axios from 'axios'
-import {useCallback, useContext, useEffect, useState} from 'react'
+import { useContext, useEffect, useState} from 'react'
 import AuthContext from '../context/AuthContext'
-import SuperHeroApi from '../components/team/SuperHeroApi'
+import { TeamServise } from '../services/TeamServise'
 
 const useTeam = (props) => {
-  const getData = JSON.parse(localStorage.getItem("teamData"));
 
-  const [team, setTeam] = useState(() => JSON.parse(localStorage.getItem("teamData")));
 
   const [isLoading, setIsLoading] = useState(true)
-  const {teamId, setTeamId} = useContext(AuthContext)
+  const {teamId, setTeamId, teamData, setTeamData} = useContext(AuthContext)
   const [teamAux, setTeamAux] = useState([])
-
-  const deleteHero = useCallback((id) => {
+  const [team, setTeam] = useState([])
+  const getTeamData = JSON.parse(localStorage.getItem('teamData'))
+  const deleteHero = (id) => {
     setIsLoading(true)
     console.log(id)
     const getTeamId = JSON.parse(localStorage.getItem('teamId'))
@@ -22,48 +20,31 @@ const useTeam = (props) => {
       console.log(getTeamId)
       alert('Error:  Hero not present in the team ')
     } else {
-
+      setTeamAux(getTeamData)
       const newArrayId = teamId.filter((item) => parseInt(item) !== parseInt(id));
-      const arrayFiltrado2 = teamAux.filter((item) => item.id !== id);
-
-      setTeamAux(arrayFiltrado2);
+      const newArrayData = teamAux.filter((item) => parseInt(item.id) !== parseInt(id));
+      window.localStorage.setItem('teamData',JSON.stringify(newArrayData))
       window.localStorage.setItem('teamId', JSON.stringify(newArrayId))
       setTeamId(newArrayId)
-      window.localStorage.setItem('teamData', JSON.stringify(arrayFiltrado2))
-      setTeam(getData)
-      setIsLoading(false)
-      console.log(team)
+      setTeamAux(newArrayData)
+      setTeam(teamData)
     }
+    setIsLoading(false)
+  }
 
-  }, [teamAux]);
 
   useEffect(() => {
-    const retrieveTeam = async () => {
-      let promises = [];
-      let i = 0
-      const array = []
-      const arrayIDs = JSON.parse(window.localStorage.getItem('teamId'))
-      for (i = 0; i < arrayIDs.length; i++) {
-        promises.push(axios.get(SuperHeroApi.withID(arrayIDs[i])).then(response => {
-          array.push(response.data)
-        }).catch(e => {
-          console.log(e)
-        }))
-      }
-      Promise.all(promises).then(() => {
-        window.localStorage.setItem('teamData', JSON.stringify(array))
-        setTeamAux(array)
-        setIsLoading(false)
-
-      });
-    }
-    retrieveTeam()
+   
+    TeamServise.retrieveTeam(setTeamAux)
+    setTeam(teamAux)
     const timer = setTimeout(() => {
-      console.log('This will run after 1 second!')
-    }, 1000);
+    }, 1050);
+    setIsLoading(false)
     return() => clearTimeout(timer);
 
-  }, [])
+  }, [setTeamAux])
+
+
 
   return({team, isLoading, deleteHero, teamAux})
 }

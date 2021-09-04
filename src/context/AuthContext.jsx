@@ -6,6 +6,7 @@ const AuthProvider = ({children}) => {
     () => window.localStorage.getItem('jwt')
   )
   const [teamId, setTeamId] = useState(()=>JSON.parse(window.localStorage.getItem('teamId')))
+  const [teamData,setTeamData]=useState(()=>JSON.parse(window.localStorage.getItem('teamData')))
   useEffect(() => {
     const existJWT=window.localStorage.getItem('jwt')
     if(existJWT===null){
@@ -15,7 +16,7 @@ const AuthProvider = ({children}) => {
 
   }, [])
   let isLogged = Boolean(jwt)
-  const data ={jwt, setJWT, isLogged, teamId, setTeamId};
+  const data ={jwt, setJWT, isLogged, teamId, setTeamId,teamData,setTeamData};
   return (
     <AuthContext.Provider value={data}>
       {children}
