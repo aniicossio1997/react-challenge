@@ -15,14 +15,21 @@ import WithoutProted from "./WithoutProted";
 import FormHero from "./components/team/addHero/FormHero";
 import PageLogin from "./pages/PageLogin";
 import PageTeam from "./pages/PageTeam";
+import { Provider } from "react-redux";
+import generateStore from "./redux/store"
 function App(): JSX.Element {
+  const store = generateStore()
+
   return (
     <>
       <AuthProvider>
+
+      <Provider store={store}>
         <Router>
           <Navbar/>
 
             <div className="main container-width mt-2">
+
               <Switch>
               <WithoutProted path="/login" component={PageLogin} />
               <ProtectedRoute path="/team/add" component={FormHero} />
@@ -31,9 +38,12 @@ function App(): JSX.Element {
               <WithoutProted path="/" component={Home}  exact/>
               <Route path="/:rest*"><NotFound/></Route>
               </Switch>
+
+
             </div>
           <Footer/>
         </Router>
+        </Provider>
       </AuthProvider>
     </>
   );

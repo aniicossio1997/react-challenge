@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState} from 'react'
+import { useDispatch } from 'react-redux'
 import AuthContext from '../context/AuthContext'
-import { TeamServise } from '../services/TeamServise'
-
+import { TeamService } from '../services/TeamService'
+import {getTeamAction} from '../redux/teamDucks'
 const useTeam = (props) => {
-
-
   const [isLoading, setIsLoading] = useState(true)
   const {teamId, setTeamId, teamData, setTeamData} = useContext(AuthContext)
   const [teamAux, setTeamAux] = useState([])
   const [team, setTeam] = useState([])
   const getTeamData = JSON.parse(localStorage.getItem('teamData'))
+  const dispatch =useDispatch()
+
   const deleteHero = (id) => {
     setIsLoading(true)
     console.log(id)
@@ -34,15 +35,15 @@ const useTeam = (props) => {
 
 
   useEffect(() => {
-   
-    TeamServise.retrieveTeam(setTeamAux)
-    setTeam(teamAux)
-    const timer = setTimeout(() => {
+    dispatch(getTeamAction())
+
+    const timer = setTimeout(() => { 
+
     }, 1050);
     setIsLoading(false)
     return() => clearTimeout(timer);
 
-  }, [setTeamAux])
+  }, [ dispatch])
 
 
 
