@@ -33,7 +33,7 @@ const Show = () => {
               style={{ height: "390px" }}
               alt="..."
             />
-            <div class="card-header bg-dark text-white ">
+            <div className="card-header bg-dark text-white ">
               <h5 className="card-title text-center ">
                 <strong>Name: {hero.name}</strong>{" "}
               </h5>

@@ -4,10 +4,13 @@ import Aside from './Aside';
 import Hero from './Hero';
 import ListHero from './ListHero';
 import useTeam from '../../hooks/useTeam';
+import { useSelector } from 'react-redux';
 
 
 const Team = () => {
-  const {team, isLoading, deleteHero, teamAux} = useTeam()
+  const {isLoading, deleteHero, teamAux} = useTeam()
+  const team = useSelector(s => s.team);
+
   function buttonOptions(hero) {
 
     return (
@@ -40,19 +43,19 @@ const Team = () => {
             <div className="col-md-12 col-lg-2 min-vw-100% ">
 
               <Aside averageHeight={
-                  Hero.averageHeight(teamAux)
+                  Hero.averageHeight(team)
                 }
                 averageWeight={
-                  Hero.averageWeight(teamAux)
+                  Hero.averageWeight(team)
                 }
                 powerstats={
-                  Hero.sortPower(teamAux)
+                  Hero.sortPower(team)
                 }/>
 
             </div>
             <div className="col-md-12 col-lg-10 min-vw-100%">
         
-            <ListHero teamAux={teamAux}
+            <ListHero teamAux={team}
               buttonOptions={buttonOptions}
              />
              </div>

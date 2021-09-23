@@ -10,7 +10,7 @@ const HeroListItem = ({hero, buttonOptions}) => {
             <img src={hero.image.url} className="img-hero  mr-5" alt="..." />
           </div>
           <div className="col-6">
-          <div class="card-header text-center">
+          <div className="card-header text-center">
             <small className="text-secondary">Name</small>
               <h5 className="card-title text-capitalize ">
                 {hero.name}
