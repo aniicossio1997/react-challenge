@@ -25,13 +25,11 @@ export default function teamReducer(state = initialData, action) {
 export const getTeamAction = () => async (dispatch) => {
   try {
     const team = await TeamService.retrieveTeam();
-    console.log(team);
     dispatch({
       type: GET_TEAM_SUCCESS,
       payload: team,
     });
   } catch (error) {
-    console.log(error);
   }
 };
 export const deleteHeroAction = (id) => ({

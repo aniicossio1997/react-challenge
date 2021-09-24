@@ -9,13 +9,12 @@ const Show = () => {
   const [hero, setHero] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const getHero = teamData.find(
+    const getHero =teamData.find(
       (element) => parseInt(element.id) === parseInt(id)
     );
     setHero(getHero);
     setIsLoading(false);
 
-    console.log(`dato: ${hero}`);
   }, []);
   return (
     <>

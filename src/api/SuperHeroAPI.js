@@ -7,5 +7,8 @@ class SuperHeroAPI{
   static getByID(id) {
     return  apiClient.get(id.toString())
   }
+  static searchName(name){
+    return apiClient.get(`search/${name}`)
+  }
 }
 export default SuperHeroAPI

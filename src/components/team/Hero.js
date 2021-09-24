@@ -48,16 +48,6 @@ class Hero {
     const newArray=array.sort(function(a, b){return parseInt(b.value) - parseInt(a.value)})
     return (newArray);
   }
-  static isLimitBadAndGood(HeroAlignment){
-    let arrayHeroData = JSON.parse(window.localStorage.getItem('teamData'))
-    let arrayBad=arrayHeroData.filter(hero => (hero.biography.alignment) === "bad");
-    let arrayGood=arrayHeroData.filter(hero => (hero.biography.alignment) === "good");
-console.log(arrayBad.length >= 3 && HeroAlignment==="bad")
-    if ((arrayBad.length >= 3 && HeroAlignment==="bad") || (arrayGood.length >= 3 && HeroAlignment==="good")){
-      return true
-    }
-    return false
-  }
 
 
 }

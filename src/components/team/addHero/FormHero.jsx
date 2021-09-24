@@ -3,10 +3,9 @@ import axios from 'axios';
 import { useCallback, useContext, useState } from 'react';
 import Alert from '../../common/Alert';
 import ListHero from '../ListHero';
-import { TeamService } from '../../../services/TeamService';
-import { useDispatch, useSelector } from 'react-redux';
-import { addHeroAction } from '../../../redux/teamDucks';
+
 import useTeam from '../../../hooks/useTeam';
+import { TeamService } from '../../../services/TeamService';
 const ENDPOINT = 'https://www.superheroapi.com/api.php/3156431871251248/search';
 const FormHero = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -33,24 +32,8 @@ const FormHero = () => {
   const handleSubmit = useCallback(async (name) => {
     setMsj(null);
     setSearchResults([]);
-    await axios
-      .get(`${ENDPOINT}/${name}`)
-      .then((res) => {
-        const data = res.data;
-        if (data.response === 'error') {
-          setMsj({
-            typeClass: 'danger',
-            title: data.error,
-            body: 'Please, try again later',
-          });
-        } else {
-          setSearchResults(data.results);
-        }
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    setMsj(await TeamService.search(name,setSearchResults))
+
   }, []);
 
   return (

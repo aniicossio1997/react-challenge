@@ -1,3 +1,4 @@
+import axios from 'axios';
 import SuperHeroAPI from '../api/SuperHeroAPI';
 
 class TeamService {
@@ -11,7 +12,7 @@ class TeamService {
     }
   }
   //devuelve el equipo
-  static async retrieveTeam(callback) {
+  static async retrieveTeam() {
     let promises = [];
     const arrayData = [];
     const arrayIDs = JSON.parse(window.localStorage.getItem('teamId'));
@@ -25,7 +26,6 @@ class TeamService {
             arrayData.push(response.data);
           })
           .catch((e) => {
-            console.log(e);
           })
       );
     }
@@ -60,7 +60,6 @@ class TeamService {
       };
     }
 
-    console.log(teamIds, hero.id,teamIds.includes(parseInt(hero.id)))
     if (teamIds.includes(parseInt(hero.id))) {
       return {
         typeClass: 'danger',
@@ -81,7 +80,6 @@ class TeamService {
   static isLimitBadAndGood(alignment, team) {
     let arrayBad = team.filter((hero) => hero.biography.alignment === 'bad');
     let arrayGood = team.filter((hero) => hero.biography.alignment === 'good');
-    console.log(arrayBad.length >= 3 && alignment === 'bad');
     if (
       (arrayBad.length >= 3 && alignment === 'bad') ||
       (arrayGood.length >= 3 && alignment === 'good')
@@ -90,5 +88,32 @@ class TeamService {
     }
     return false;
   }
+  static search = async (name, callback) => {
+     SuperHeroAPI.searchName(name)
+    .then((response) => {
+      const data = response.data;
+      if (data.response === 'error') {
+        return({
+          typeClass: 'danger',
+          title: data.error,
+          body: 'Please, try again later',
+        });
+        
+      } else {
+        callback(data.results);
+        return null
+      }
+    })
+    .catch(e => {
+      return ({
+        typeClass: 'danger',
+        title: "error",
+        body: 'Error connect to Super Hero API',
+      })
+
+    })
+
+    };
+  
 }
 export { TeamService };
