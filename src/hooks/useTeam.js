@@ -24,7 +24,9 @@ const useTeam = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true)
     dispatch(getTeamAction());
+    
     setIsLoading(false);
   }, [dispatch, setIsLoading]);
 

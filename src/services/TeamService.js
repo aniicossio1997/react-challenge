@@ -1,4 +1,3 @@
-import axios from 'axios';
 import SuperHeroAPI from '../api/SuperHeroAPI';
 
 class TeamService {
@@ -31,8 +30,11 @@ class TeamService {
     }
     await Promise.all(promises).then(() => {
       window.localStorage.setItem('teamData', JSON.stringify(arrayData));
+      
+    })
+    .catch(reason => {
+      return []
     });
-
     return arrayData;
   }
   static deleteTeamHero(id) {

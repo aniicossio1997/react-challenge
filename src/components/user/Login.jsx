@@ -14,8 +14,8 @@ const Login = (props) => {
 	return (
 		<>
 		<div className="row justify-content-center mt-5 pb-2">
-      <div className="m-auto col-12 col-sm-8 col-md-6 col-xl-6 border border-secondary pb-4 border-radius rounded-sm color-bg-t">
-        <h3 className="mt-3 text-center">LOGIN</h3>
+      <div className="m-auto col-12 col-sm-8 col-md-6 col-xl-6 border border-secondary pb-5 border-radius rounded-sm color-bg-t">
+        <h3 className="mt-3 text-center border-bottom border-secondary p-2 text-uppercase">Log Into SuperHero</h3>
 				{ error.type && ( <Alert typeClass={error.type} title="upss" body={error.message}/>)}
 
 				<Formik
@@ -71,7 +71,7 @@ const Login = (props) => {
 							<ErrorMessage name="password" component={() => (<div className="invalid-feedback">{errors.password}</div>)} />
 						</div>
 
-						<button type="submit" className="btn btn-secondary btn-lg mt-3">Enter</button>
+						<button type="submit" className="btn btn-primary btn-lg mt-3">Log In</button>
 						{checkForm && <p className="exito">Formulario enviado con exito!</p>}
 					</Form>
 				)}

@@ -1,12 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import axios from 'axios';
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Alert from '../../common/Alert';
 import ListHero from '../ListHero';
 
 import useTeam from '../../../hooks/useTeam';
 import { TeamService } from '../../../services/TeamService';
-const ENDPOINT = 'https://www.superheroapi.com/api.php/3156431871251248/search';
 const FormHero = () => {
   const [searchResults, setSearchResults] = useState([]);
   const { addHero } = useTeam();
@@ -97,10 +95,10 @@ const FormHero = () => {
                   )}
                 />
               </div>
-              <small id='emailHelp' className='form-text text-muted d-block'>
+              <small id='emailHelp' className='form-text text-white d-block'>
                 *Debe buscar un nombre de heroe para agregarlo a su equipo
               </small>
-              <small id='emailHelp' className='form-text text-muted d-block'>
+              <small id='emailHelp' className='form-text text-white d-block'>
                 *Solo debe haber Alignment 3 good and 3 bad{' '}
               </small>
             </Form>

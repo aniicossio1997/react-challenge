@@ -9,14 +9,14 @@ html, body,#root {
   background-image: linear-gradient(
     rgba(193, 207, 192,0.5), 
     rgba(151, 11, 139, 0.5)), 
-    url("./assets/images/images_B3.jpg");
+    url("../images/images_B3.jpg");
 
   background-color: #cccccc; /* Used if the image is unavailable */
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
+  background-attachment: fixed;
 }
 
 #root {
@@ -50,9 +50,10 @@ footer{
 
 }
 .img-hero {
-  width: 100%;
+  width:  100%;
   height: 100%;
   object-fit: cover;
+
 }
 
 .container-width{
@@ -66,4 +67,3 @@ footer{
 
 
 }
-

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./assets/css/App.css";
 import {AuthProvider} from "./context/AuthContext";
 import {
   BrowserRouter as Router,
@@ -8,7 +8,6 @@ import {
 import NotFound from "./pages/NotFound";
 import Navbar from "./layout/Navbar"
 import Footer from "./layout/Footer"
-import Home from "./pages/Home";
 import Show from "./components/team/Show";
 import ProtectedRoute from "./ProtectedRoute";
 import WithoutProted from "./WithoutProted";

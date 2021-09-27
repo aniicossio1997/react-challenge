@@ -3,22 +3,24 @@ class Hero {
 
   static deleteString(str) {
 
-    let resultado = str.replace(/[A-Za-z/s]/g, '')
-    if (resultado===""){
+    let result = str.replace(/[A-Za-z/s]/g, '')
+    if (result==="" || isNaN(result) ){
       return 0
     }
-    return parseInt(resultado)
+    return parseInt(result)
   }
 
   static averageWeight = (team) => {
-    let weight = team.reduce(function (acc, hero) {
-      return acc + (Hero.deleteString(hero.appearance.weight[1]));
+    let weight=0
+    weight = team.reduce(function (acc, hero) {
+      return acc + parseInt(Hero.deleteString(hero.appearance.weight[1]));
     }, 0);
 
     return((weight / team.length).toFixed(2))
   }
   static averageHeight = (team) => {
-    let height = team.reduce(function (acc, hero) {
+    let height =0
+     height=team.reduce(function (acc, hero) {
       return acc + parseInt(Hero.deleteString(hero.appearance.height[1]));
     }, 0);
     return((height / team.length).toFixed(2))

@@ -1,20 +1,28 @@
-import React from 'react'
-
-const Aside = ({averageHeight,averageWeight,powerstats}) => {
+import React from "react";
+import { Link } from "react-router-dom";
+import PowerstatsItem from "./PowerstatsItem";
+const Aside = ({ averageHeight, averageWeight, powerstats }) => {
   return (
     <>
-    
+      <Link className="btn btn-lg btn-primary mb-1 btn-block " to="/team/add">
+        Add Hero
+      </Link>
+      <br />
       <ul className="list-group color-bg-t">
-        {
-          powerstats.map((power,index) =>(
-            <li className={` text-capitalize  ${ index===0 ? " list-group-item active " : 'list-group-item bg-transparent'}`} key={index} aria-current="true">{power.name} : {power.value}</li>
-          ))
-        }
-        <li className="list-group-item bg-transparent text-capitalize">Height: {averageHeight}cm </li>
-        <li className="list-group-item bg-transparent mb-3 text-capitalize">Weight: {averageWeight}kg </li>
+        {powerstats.map((power, index) => (
+          <div key={index}>
+            <PowerstatsItem power={power} index={index} />
+          </div>
+        ))}
+        <li className="list-group-item bg-transparent text-capitalize">
+          Height: {averageHeight}cm{" "}
+        </li>
+        <li className="list-group-item bg-transparent text-capitalize">
+          Weight: {averageWeight}kg{" "}
+        </li>
       </ul>
     </>
-  )
-}
+  );
+};
 
-export default Aside
+export default Aside;

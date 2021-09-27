@@ -1,21 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import AuthContext from "../../context/AuthContext";
 import {ListPowerstats} from "./ListPowerstats";
 
 const Show = () => {
   const { id } = useParams();
-  const { teamData } =useContext(AuthContext)
+  const team = useSelector(s => s.team);
   const [hero, setHero] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const getHero =teamData.find(
+    const getHero =team.find(
       (element) => parseInt(element.id) === parseInt(id)
     );
     setHero(getHero);
     setIsLoading(false);
 
-  }, []);
+  }, [id,team]);
   return (
     <>
       {isLoading ? (
@@ -23,13 +23,12 @@ const Show = () => {
       ) : (
         <div className=" d-flex justify-content-center">
           <div
-            className="card mb-3 border border-secondary rounded "
-            style={{ width: "55%" }}
+            className="card mb-3 border border-secondary rounded  color-bg-t"
           >
             <img
               src={hero.image.url}
               className="card-img-top img-hero"
-              style={{ height: "390px" }}
+              style={{ height: "350px" }}
               alt="..."
             />
             <div className="card-header bg-dark text-white ">
@@ -37,7 +36,7 @@ const Show = () => {
                 <strong>Name: {hero.name}</strong>{" "}
               </h5>
             </div>
-            <div className="card-body">
+            <div className="card-body justify-content">
               <div className="row">
                 <div className="col-md-6 col-12 p-3">
                   <strong className="d-block text-capitalize">
@@ -64,7 +63,7 @@ const Show = () => {
                   <span className="d-block text-capitalize">
                     ‣ race: {hero.appearance.race}
                   </span>
-                  <strong className="d-block">‣ Work: </strong>
+                  <strong className="d-block"> Work: </strong>
                   <p className="card-text">
                     ‣ Occupation: {hero.work.occupation}
                   </p>

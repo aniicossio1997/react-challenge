@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 
 const Team = () => {
-  const {isLoading, deleteHero, teamAux} = useTeam()
+  const {isLoading, deleteHero} = useTeam()
   const team = useSelector(s => s.team);
 
   function buttonOptions(hero) {
@@ -20,8 +20,8 @@ const Team = () => {
               hero.id
             }`
           }
-          className="btn btn-sm btn-outline-success float-left ">Show</Link>
-        <button className="btn btn-sm btn-outline-danger float-right"
+          className="btn btn-sm btn-success float-left ">Show</Link>
+        <button className="btn btn-sm btn-danger float-right"
           onClick={
             () => deleteHero(hero.id)
         }>Delete</button>
@@ -35,12 +35,11 @@ const Team = () => {
         <Loading/>
       ) : (
         <>
-          <nav className="navbar color-bg-t p-0 mb-3">
-            <Link className="btn btn-lg btn-outline-primary" to="/team/add">Add Hero</Link>
-          </nav>
+          {/* <nav className="navbar color-bg-t p-0 mb-3">
+            <Link className="btn btn-lg btn-primary" to="/team/add">Add Hero</Link>
+          </nav> */}
           <div className="row min-vw-100% object">
             <div className="col-md-12 col-lg-2 min-vw-100% ">
-
               <Aside averageHeight={
                   Hero.averageHeight(team)
                 }
