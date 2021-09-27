@@ -1,8 +1,27 @@
-html, body,#root {
-  height: 100%;
-  background:#fafafa;
+html{
+  font-family: 'Scheherazade New', serif;
+  min-height: 100%;
+
 }
+
+html, body,#root {
+  background:#fafafa;
+  background-image: linear-gradient(
+    rgba(193, 207, 192,0.5), 
+    rgba(151, 11, 139, 0.5)), 
+    url("./assets/images/images_B3.jpg");
+
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
 #root {
+
+
   font-size: 15px;
   display: grid;
   /* grid-template-areas:
@@ -16,7 +35,7 @@ html, body,#root {
   "footer";
   grid-template-columns: auto;
   grid-template-rows: 70px 1fr 100px; 
-  gap: 1em;
+  gap: 0.5em;
 }
 header{
   grid-area: header;
@@ -25,7 +44,7 @@ header{
 grid-area: main;
 }
 footer{
-  border-top: #ccc 1px solid;
+  border-top: rgb(116, 114, 114) 1px solid;
   padding-top: 1em;
   grid-area: footer;
 
@@ -40,3 +59,11 @@ footer{
   width: 93%;
   margin: 0 auto;
 }
+.color-bg-t{
+  background-color: rgba(24, 23, 23, 0.8);
+  color: #f5f6f5;
+  box-shadow: 4px 2px 74px -13px rgba(161, 153, 153, 0.57);
+
+
+}
+

@@ -13,8 +13,8 @@ const Login = (props) => {
 	}, [isLogged,props.history])
 	return (
 		<>
-		<div className="row justify-content-center p-3">
-      <div className="m-auto col-12 col-sm-8 col-md-6 col-xl-6">
+		<div className="row justify-content-center mt-5 pb-2">
+      <div className="m-auto col-12 col-sm-8 col-md-6 col-xl-6 border border-secondary pb-4 border-radius rounded-sm color-bg-t">
         <h3 className="mt-3 text-center">LOGIN</h3>
 				{ error.type && ( <Alert typeClass={error.type} title="upss" body={error.message}/>)}
 
@@ -45,7 +45,7 @@ const Login = (props) => {
 
 				{( {errors, touched} ) => (
 					
-					<Form className="formulario">
+					<Form className="formulario ">
 						<div className="mt-3 mb-3">
 							
 							<label htmlFor="email" className="text-capitalize">email</label>
@@ -71,7 +71,7 @@ const Login = (props) => {
 							<ErrorMessage name="password" component={() => (<div className="invalid-feedback">{errors.password}</div>)} />
 						</div>
 
-						<button type="submit" className="btn btn-block btn-dark mt-3">Enviar</button>
+						<button type="submit" className="btn btn-secondary btn-lg mt-3">Enter</button>
 						{checkForm && <p className="exito">Formulario enviado con exito!</p>}
 					</Form>
 				)}

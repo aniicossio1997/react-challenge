@@ -14,7 +14,7 @@ const Navbar = (props) => {
   return (
     <>
       <header>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark pb-2  " style={{zIndex: "2"}}>
+        <nav className="navbar navbar-expand-lg navbar-dark color-bg-t pb-2  " style={{zIndex: "2"}}>
           <Link to="/" className="navbar-brand">
             <strong>
               <i>{`<<SuperHero>>`}</i>
@@ -42,23 +42,7 @@ const Navbar = (props) => {
             )
             }           
 
-          
-            {
-              !isLogged && (
-                <>
-                <li className="nav-item active">
-                <NavLink className="btn btn-dark mr-2" to="/" exact>
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item active">
-                <NavLink className="btn btn-dark mr-2" to="/login" exact>
-                  Login
-                </NavLink>
-              </li>
-              </>
-              )
-            }
+        
 
 
             </ul>

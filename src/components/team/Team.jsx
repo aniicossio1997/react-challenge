@@ -35,9 +35,8 @@ const Team = () => {
         <Loading/>
       ) : (
         <>
-          <nav className="navbar navbar-light bg-light p-0 mb-3">
+          <nav className="navbar color-bg-t p-0 mb-3">
             <Link className="btn btn-lg btn-outline-primary" to="/team/add">Add Hero</Link>
-
           </nav>
           <div className="row min-vw-100% object">
             <div className="col-md-12 col-lg-2 min-vw-100% ">

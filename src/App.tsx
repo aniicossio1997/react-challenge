@@ -31,11 +31,11 @@ function App(): JSX.Element {
             <div className="main container-width mt-2">
 
               <Switch>
-              <WithoutProted path="/login" component={PageLogin} />
               <ProtectedRoute path="/team/add" component={FormHero} />
               <ProtectedRoute path="/team/:id" component={Show}  exact />
               <ProtectedRoute path="/team" component={PageTeam} />
-              <WithoutProted path="/" component={Home}  exact/>
+              <WithoutProted path="/login" component={PageLogin}  exact/>
+              <WithoutProted path="/" component={PageLogin}  exact/>
               <Route path="/:rest*"><NotFound/></Route>
               </Switch>
 

@@ -4,7 +4,7 @@ import {ListPowerstats} from "./ListPowerstats";
 
 const HeroListItem = ({hero, buttonOptions}) => {
   return (
-      <div className="card mb-2" style={{ maxWidth: "100%" }}>
+      <div className="card mb-2 color-bg-t" style={{ maxWidth: "100%" }}>
         <div className="row no-gutters">
           <div className="col-6">
             <img src={hero.image.url} className="img-hero  mr-5" alt="..." />
