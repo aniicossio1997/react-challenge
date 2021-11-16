@@ -35,7 +35,7 @@ Cada vez que el usuario inicie sesión por default contara con seis héroes en s
 
 - npm start //yarn start
 
-- Es necesario que el navegador cuente con [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino), para no tener problemas con los cors.
+- Es necesario que el navegador cuente con [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino), para no tener problemas al buscar un héroe para agregar al equipo
 
 ## Librerías utilizadas
 
