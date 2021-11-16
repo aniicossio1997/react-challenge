@@ -14,7 +14,10 @@ const useUser = () => {
         setError({ type: "success", message: `datos correctos ` });
         setJWT(resp.data.token);
         window.localStorage.setItem("jwt", resp.data.token);
-        window.localStorage.setItem("teamId", JSON.stringify([]));
+        window.localStorage.setItem(
+          "teamId",
+          JSON.stringify([1, 2, 3, 4, 5, 6])
+        );
       } catch (error) {
         setError({ type: "danger", message: error.response.data.error });
         window.localStorage.removeItem("jwt");
@@ -25,7 +28,7 @@ const useUser = () => {
   const guestUser = useCallback(() => {
     const guest = "jnsjknskjsnkjsnkns12234";
     setError({ type: "success", message: `datos correctos ` });
-    window.localStorage.setItem("teamId", JSON.stringify([]));
+    window.localStorage.setItem("teamId", JSON.stringify([1, 2, 3, 4, 5, 6]));
     window.localStorage.setItem("jwt", guest);
     setJWT(guest);
   }, [setJWT]);
