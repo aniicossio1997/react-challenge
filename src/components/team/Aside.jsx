@@ -15,7 +15,7 @@ const Aside = ({ averageHeight, averageWeight, powerstats }) => {
           </div>
         ))}
         <li className="list-group-item bg-transparent text-capitalize">
-          Height: {averageHeight}cm{" "}
+          Height: {averageHeight === "NaNcm" ? 0 : averageHeight}cm{" "}
         </li>
         <li className="list-group-item bg-transparent text-capitalize">
           Weight: {averageWeight}kg{" "}
