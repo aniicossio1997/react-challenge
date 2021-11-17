@@ -2,10 +2,10 @@
 
 Cada vez que el usuario inicie sesión por default contara con seis héroes en su equipo, (los ID del equipo como el JWT se guardaran en el localstorage ), cuando cierre su sesión se limpiara los valores del localstorage.
 
-### vista del equipo
+### vista del equipo [Ir a la pagina](https://react-challenge-weld.vercel.app/)
+
 
 ![alt text](https://github.com/aniicossio1997/react-challenge/blob/main/myTeam.png)
-[Ir a la pagina](https://react-challenge-weld.vercel.app/)
 
 ## Reglas de negocio:
 
@@ -30,7 +30,7 @@ Cada vez que el usuario inicie sesión por default contara con seis héroes en s
 
 - redux: los reducer utilizados.
 
-- **Para iniciar el proyecto**
+## Para iniciar el proyecto**
 
 - npm install // yarn install
 
