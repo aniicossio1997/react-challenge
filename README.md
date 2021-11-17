@@ -5,6 +5,7 @@ Cada vez que el usuario inicie sesión por default contara con seis héroes en s
 ### vista del equipo
 
 ![alt text](https://github.com/aniicossio1997/react-challenge/blob/main/myTeam.png)
+[Ir a la pagina](https://react-challenge-weld.vercel.app/)
 
 ## Reglas de negocio:
 
